@@ -1,25 +1,24 @@
-String sepByComma(String org) {
+String formatDisplay(String value) {
   String formatted = '';
 
-  for (var i = 0; i < org.length; i++) {
-    formatted += org[i];
-    if ((org.length - (i + 1)) % 3 == 0 && (i + 1) != org.length)
-      formatted += ',';
+  for (var i = 0; i < value.length; i++) {
+    formatted += value[i];
+    if ((value.length - (i + 1)) % 3 == 0 && (i + 1) != value.length) formatted += ',';
   }
 
   return formatted;
 }
 
-String cleanResult(double result) {
+String clear(double result) {
   String cleaned = '';
 
   if (result == result.round()) {
     cleaned = result.round().toString();
-    cleaned = sepByComma(cleaned);
+    cleaned = formatDisplay(cleaned);
   } else {
     cleaned = result.toStringAsFixed(4).replaceAll(RegExp(r'0+$'), '');
-    List<String> splitted = cleaned.split('.');
-    cleaned = sepByComma(splitted[0]) + '.' + splitted[1];
+    List<String> list = cleaned.split('.');
+    cleaned = formatDisplay(list[0]) + '.' + list[1];
   }
 
   return cleaned;

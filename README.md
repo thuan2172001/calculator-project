@@ -1,3 +1,3 @@
 # Calculator
 
-### Homework excercise for INT3120_2
+### Homework exercises for INT3120_2
